@@ -1,0 +1,43 @@
+import { createBrowserRouter } from "react-router";
+import LayOut from "../../Layout/LayOut";
+import Home from "../../Pages/Home/Home";
+import About from "../../Pages/About/About";
+import Catergores from "../../Pages/Catergores/catergores"
+import Cart from "../../Pages/Cart/Cart"
+import BookDetails from "../../Pages/Book-Details/BookDetails"
+import Blog from "../../Pages/Blog/Blog"
+import Register from "../../Pages/Auth/Register"
+import Login from "../../Pages/Auth/Login"
+import UserContextProvider from "../../Contexts/UserContext";
+import BookContextProvider from "../../Contexts/BookContext";
+import Contact from "../../Pages/Contact/contact";
+import AllPage from "../../Pages/AllPage/AllPage";
+import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
+import AuthProtect from "../../Pages/Auth/AuthProtect";
+
+
+
+export const routing=createBrowserRouter([
+    {path:'',element:
+ <UserContextProvider>
+        <BookContextProvider>
+          <LayOut />
+        </BookContextProvider>
+      </UserContextProvider>  ,children:[
+        {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
+          {index:true,element:<Home/>},
+        {path:'about',element:<About/>},
+        {path:'cateroges',element:<Catergores/>},
+        {path:'cart',element:<Cart/>},  
+        {path:`Book-Details/:id`,element:<BookDetails/>},
+        {path:'blog',element:<Blog/>},
+                {path:'Contact',element:<Contact/>},
+        ]},
+
+        {path:'register',element:<AuthProtect><Register/></AuthProtect>},
+        {path:'login',element:<AuthProtect><Login></Login></AuthProtect> }
+        
+
+
+    ]}
+])
