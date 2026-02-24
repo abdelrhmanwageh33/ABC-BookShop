@@ -13,15 +13,14 @@ import AllPage from "../../Pages/AllPage/AllPage";
 import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
 import AuthProtect from "../../Pages/Auth/AuthProtect";
 import Categories from "../../Pages/Categories/Categories";
-import Layout from "../../Layout/Layout";
-
+import Layout from "../../Layout/Layout"
 
 
 export const routing=createBrowserRouter([
     {path:'',element:
  <UserContextProvider>
         <BookContextProvider>
-          <Layout />
+          <Layout/>
         </BookContextProvider>
       </UserContextProvider>  ,children:[
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
