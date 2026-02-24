@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router";
-import LayOut from "../../Layout/LayOut";
 import Home from "../../Pages/Home/Home";
 import About from "../../Pages/About/About";
 import Cart from "../../Pages/Cart/Cart"
@@ -14,6 +13,7 @@ import AllPage from "../../Pages/AllPage/AllPage";
 import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
 import AuthProtect from "../../Pages/Auth/AuthProtect";
 import Categories from "../../Pages/Categories/Categories";
+import Layout from "../../Layout/Layout";
 
 
 
@@ -21,7 +21,7 @@ export const routing=createBrowserRouter([
     {path:'',element:
  <UserContextProvider>
         <BookContextProvider>
-          <LayOut />
+          <Layout />
         </BookContextProvider>
       </UserContextProvider>  ,children:[
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
