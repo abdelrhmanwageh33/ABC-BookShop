@@ -27,7 +27,7 @@ export const routing=createBrowserRouter([
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
           {index:true,element:<Home/>},
         {path:'about',element:<About/>},
-        {path:'cateroges',element:<Categories/>},
+        {path:'Categories',element:<Categories/>},
         {path:'cart',element:<Cart/>},  
         {path:`Book-Details/:id`,element:<BookDetails/>},
         {path:'blog',element:<Blog/>},
