@@ -2,7 +2,6 @@
 
 import { Button, Label, Select, Spinner } from "flowbite-react";
 import  AppInput  from "../../Shared/Input/AppInput";
-import AppButton from "../../Shared/Button/AppButton";
 import { Link, useNavigate } from "react-router";
 import { useForm } from "react-hook-form";
 import axios from "axios";
@@ -43,8 +42,8 @@ getUserData(data?.token)
   
   } catch (error) {
     setLoading(true)
-    toast.error(error.response.data.error)
-  console.log(error);
+    toast.error(error?.response?.data.error)
+  console.log(error.response?.data.error);
   
   }
 }

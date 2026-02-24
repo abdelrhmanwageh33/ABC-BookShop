@@ -57,7 +57,7 @@ useEffect(()=>{
           Home
         </NavbarLink>
         <NavbarLink as={Link} to='/about' className="transition-all duration-100 hover:text-red-600">About</NavbarLink>
-        <NavbarLink as={Link} to='/cateroges' className="transition-all duration-100 hover:text-red-600" >Cateroges</NavbarLink>
+        <NavbarLink as={Link} to='/categories' className="transition-all duration-100 hover:text-red-600" >Cateroges</NavbarLink>
         <NavbarLink as={Link} to='/blog' className="transition-all duration-100 hover:text-red-600">Blog</NavbarLink>
         <NavbarLink as={Link} to='/Contact' className="transition-all duration-100 hover:text-red-600">Contact</NavbarLink>
       </NavbarCollapse>
