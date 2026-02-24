@@ -4,7 +4,7 @@ import { bookcontext } from '../../Contexts/BookContext';
 import Card from '../../Components/Card/Card';
 import { AppFooter } from '../../Components/AppFooter/AppFooter';
 
-export default function Catergores() {
+export default function Categories() {
   const { bookMount, getAllBook } = useContext(bookcontext);
 
   // State

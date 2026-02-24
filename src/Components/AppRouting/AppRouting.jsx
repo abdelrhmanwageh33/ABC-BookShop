@@ -14,6 +14,7 @@ import Contact from "../../Pages/Contact/contact";
 import AllPage from "../../Pages/AllPage/AllPage";
 import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
 import AuthProtect from "../../Pages/Auth/AuthProtect";
+import Categories from "../../Pages/Categories/Categories";
 
 
 
@@ -27,7 +28,7 @@ export const routing=createBrowserRouter([
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
           {index:true,element:<Home/>},
         {path:'about',element:<About/>},
-        {path:'cateroges',element:<Catergores/>},
+        {path:'cateroges',element:<Categories/>},
         {path:'cart',element:<Cart/>},  
         {path:`Book-Details/:id`,element:<BookDetails/>},
         {path:'blog',element:<Blog/>},
