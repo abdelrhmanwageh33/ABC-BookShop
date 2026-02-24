@@ -9,7 +9,7 @@ import Register from "../../Pages/Auth/Register"
 import Login from "../../Pages/Auth/Login"
 import UserContextProvider from "../../Contexts/UserContext";
 import BookContextProvider from "../../Contexts/BookContext";
-import Contact from "../../Pages/Contact/contact";
+import Contact from "../../Pages/Contact/Contact";
 import AllPage from "../../Pages/AllPage/AllPage";
 import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
 import AuthProtect from "../../Pages/Auth/AuthProtect";
