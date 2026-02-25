@@ -1,11 +1,8 @@
 import { Rating, RatingStar } from "flowbite-react";
-import { useCallback, useContext } from "react";
-import { bookcontext } from "../../Contexts/BookContext";
-import { userContext } from "../../Contexts/UserContext";
+
 import { Link } from "react-router";
 
 export default function Card({ book }) {
- const {userData}= useContext(userContext) 
 
 
 

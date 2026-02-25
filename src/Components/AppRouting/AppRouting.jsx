@@ -4,23 +4,21 @@ import About from "../../Pages/About/About";
 import Cart from "../../Pages/Cart/Cart"
 import BookDetails from "../../Pages/Book-Details/BookDetails"
 import Blog from "../../Pages/Blog/Blog"
-import Register from "../../Pages/Auth/Register"
-import Login from "../../Pages/Auth/Login"
-import UserContextProvider from "../../Contexts/UserContext";
+
 import BookContextProvider from "../../Contexts/BookContext";
 import Contact from "../../Pages/Contact/Contact";
 import AllPage from "../../Pages/AllPage/AllPage";
 import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
-import AuthProtect from "../../Pages/Auth/AuthProtect";
 import Categories from "../../Pages/Categories/Categories";
-
+import Layout from "../../Layout/Layout";
 
 export const routing=createBrowserRouter([
     {path:'',element:
- <UserContextProvider>
+
         <BookContextProvider>
+          <Layout/>
         </BookContextProvider>
-      </UserContextProvider>  ,children:[
+        ,children:[
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
           {index:true,element:<Home/>},
         {path:'about',element:<About/>},
@@ -31,8 +29,6 @@ export const routing=createBrowserRouter([
                 {path:'Contact',element:<Contact/>},
         ]},
 
-        {path:'register',element:<AuthProtect><Register/></AuthProtect>},
-        {path:'login',element:<AuthProtect><Login></Login></AuthProtect> }
         
 
 

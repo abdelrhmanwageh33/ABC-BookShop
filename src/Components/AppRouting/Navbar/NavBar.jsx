@@ -1,18 +1,10 @@
 import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle } from "flowbite-react";
-import profile from '../../../assets/profile.jpg'
 import logo from '../../../assets/logo.png.webp'
-import { Logout, ShoppingCart } from "iconsax-reactjs";
 import { Link } from "react-router";
-import { useContext, useEffect, useState } from "react";
 
-import AppButton from "../../../Shared/Button/AppButton";
-import { userContext } from "../../../Contexts/UserContext";
 export function NavBar() {
 
 
-const {userData,getUserData,logOut}= useContext(userContext)
-useEffect(()=>{
-    if(localStorage.getItem('token'))getUserData(localStorage.getItem("token"))},[])
 
 
   return (
@@ -30,7 +22,7 @@ useEffect(()=>{
     </NavbarBrand>
   </div>
 
-  {/* Right Section */}
+  {/* Right Section
   <div className="flex items-center gap-4 ml-auto   ">
     
 
@@ -43,7 +35,7 @@ useEffect(()=>{
     ) : (
       <AppButton Text={'Sign in'} />
     )}
-  </div>
+  </div> */}
 
 </Navbar>
 
