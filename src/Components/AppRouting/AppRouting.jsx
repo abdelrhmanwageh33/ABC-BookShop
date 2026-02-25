@@ -16,7 +16,7 @@ export const routing=createBrowserRouter([
     {path:'',element:
 
         <BookContextProvider>
-          <Layout/>
+         <Layout/>
         </BookContextProvider>
         ,children:[
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
