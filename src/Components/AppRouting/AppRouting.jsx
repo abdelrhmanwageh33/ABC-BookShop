@@ -8,7 +8,6 @@ import Blog from "../../Pages/Blog/Blog"
 import BookContextProvider from "../../Contexts/BookContext";
 import Contact from "../../Pages/Contact/Contact";
 import AllPage from "../../Pages/AllPage/AllPage";
-import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
 import Categories from "../../Pages/Categories/Categories";
 import Layout from "../../Layout/Layout";
 
@@ -19,7 +18,7 @@ export const routing=createBrowserRouter([
             <Layout/>
         </BookContextProvider>
         ,children:[
-        {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
+        {index:'page',element:<AllPage/>,children:[
           {index:true,element:<Home/>},
         {path:'about',element:<About/>},
         {path:'categories',element:<Categories/>},
