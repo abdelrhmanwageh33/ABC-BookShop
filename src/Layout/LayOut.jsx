@@ -1,13 +1,13 @@
 import { Outlet } from 'react-router'
-import { NavBar } from '../Components/AppRouting/Navbar/Navbar'
 import { Toaster } from 'react-hot-toast'
 import "aos/dist/aos.css";
+import { NavBar } from '../Components/Navbar/Navbar';
 
 
-export default function Layout() {
+export default function LayOut() {
   return (
  < >
- <NavBar></NavBar>
+ <NavBar/>
  <Outlet/>
  <div><Toaster/></div>
  </>
