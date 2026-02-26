@@ -2,7 +2,7 @@ import { Button, Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarToggle }
 import logo from '../../assets/logo.png.webp'
 import { Link } from "react-router";
 
-export function NavBar() {
+export function AppNavbar() {
 
 
 
