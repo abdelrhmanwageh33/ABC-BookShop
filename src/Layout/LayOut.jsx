@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import { NavBar } from '../Components/Navbar/Navbar';
 
 
-export default function LayOut() {
+export default function Layout() {
   return (
  < >
  <NavBar/>

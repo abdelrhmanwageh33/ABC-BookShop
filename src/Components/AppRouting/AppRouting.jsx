@@ -10,14 +10,13 @@ import Contact from "../../Pages/Contact/Contact";
 import AllPage from "../../Pages/AllPage/AllPage";
 import ProtectedRouting from "../ProtectedRouting/ProtectedRouting";
 import Categories from "../../Pages/Categories/Categories";
-import LayOut from "../../Layout/LayOut";
-
+import Layout from "../../Layout/Layout";
 
 export const routing=createBrowserRouter([
     {path:'',element:
 
         <BookContextProvider>
-       <LayOut/>
+            <Layout/>
         </BookContextProvider>
         ,children:[
         {index:'page',element:<ProtectedRouting><AllPage/></ProtectedRouting>,children:[
