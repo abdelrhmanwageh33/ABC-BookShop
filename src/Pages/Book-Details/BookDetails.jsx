@@ -6,9 +6,27 @@ import { Button, Carousel, Rating, RatingStar } from "flowbite-react";
 import FeatCard from "../../Components/FeaturesSections/FeatCard";
 import AppButton from "../../Shared/Button/AppButton";
 import { AppFooter } from "../../Components/AppFooter/AppFooter";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { useGSAP } from "@gsap/react";
 
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 export default function BookDetails() {
+useGSAP(()=>{
+let tl =gsap.timeline()
+tl.to('.box',{
+x:100,
+duration:1
+}),
+tl.from('.box-content',{
+  y:100,
+  duration:1,
+  opacity:0,
+  x:0
+})
 
+},[])
   const {id}=useParams()
   console.log(id);
           const [bookDetails,setbookDetails] = useState(null)
@@ -42,9 +60,9 @@ export default function BookDetails() {
         
             <h3 className='text-2xl my-10'>Book Details</h3>
        
-        <div className='bg-red-600 my-10 py-10'>
-      <div className=" flex flex-col md:flex-row items-start md:mx-10 p-10 gap-4">
-     <div className="md:mx-10">
+        <div className='bg-red-600 my-10 py-10 '>
+      <div className=" flex flex-col md:flex-row items-start md:mx-10 p-10 gap-4 box">
+     <div className="md:mx-10 box-img">
 
  <img
     src={bookDetails?.formats["image/jpeg"]}
@@ -52,7 +70,7 @@ export default function BookDetails() {
     alt=""
   />
        </div>
-       <div>
+       <div className="box-content">
           <h3 className="text-white text-4xl  font-semibold my-3   ">
     {bookDetails?.title}
   </h3>

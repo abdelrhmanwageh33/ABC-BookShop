@@ -3,9 +3,11 @@ import header from '../../assets/h2_hero1.jpg';
 import { bookcontext } from '../../Contexts/BookContext';
 import Card from '../../Components/Card/Card';
 import { AppFooter } from '../../Components/AppFooter/AppFooter';
+import { AppPagination } from '../../Components/AppPagination/AppPagination';
+import Skeleton from 'react-loading-skeleton';
 
 export default function Categories() {
-  const { bookMount, getAllBook } = useContext(bookcontext);
+  const { bookMount, getAllBook ,page,setPage } = useContext(bookcontext);
 
   // State
   const [filter, setFilter] = useState([]);
@@ -27,8 +29,8 @@ function changeCategory(){
 }
   // Effect: جلب البيانات عند المونت
   useEffect(() => {
-    getAllBook();
-  }, []);
+    getAllBook(page);
+  }, [page]);
 
   // Effect: فلترة الكتب عند تغيير bookMount أو category
   useEffect(() => {
@@ -97,12 +99,19 @@ function changeCategory(){
         {/* Books Grid */}
         <div className="" data-aos="fade-up-right">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filter?.map((item, i) => (
+            {filter.length==0? <Skeleton  count={4} baseColor="gray" className="h-96 w-96"/>
+            :filter?.map((item, i) => (
               <Card book={item} key={i} />
             ))}
           </div>
         </div>
       </div>
+      <div className='w-[90] mx-auto  flex items-center justify-center gap-8 my-8'>
+{!category?<AppPagination
+  currentPage={page}
+  onPageChange={setPage} 
+  totalPages={2} 
+/>:''}      </div>
       <AppFooter/>
     </section>
 

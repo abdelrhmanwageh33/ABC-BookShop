@@ -55,7 +55,7 @@ export default function Blog() {
 <hr className='w-[50%]  mt-2 mx-5 text-gray-200' />
      <div>
       <div className='flex items-center gap-5 my-5 mx-5'>
-       <img src={post1} className='w-[20%]' alt="" />
+       <img src={post1} className='w-[20%]'  alt="" />
        <p className='text-[#2d2d2d] cursor-pointer hover:text-red-600 transition-all duration-75'>The Amazing Hubble <br /> january 12, 2019</p>
      
       </div>

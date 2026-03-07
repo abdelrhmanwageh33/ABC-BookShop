@@ -8,13 +8,12 @@ export default function BookContextProvider({children }) {
 
     const [bookMount,setBookMount] = useState(null)
 
-
-
+const [page,setPage]=useState(1)
 
 
     async function getAllBook() {
         try {
-            const {data} = await axios('https://gutendex.com/books/',{
+            const {data} = await axios(`https://gutendex.com/books/?page=${page}`,{
                 method:'GET'
             })
             setBookMount(data?.results)
@@ -29,7 +28,7 @@ export default function BookContextProvider({children }) {
      
 
 
-    const value={bookMount,setBookMount,getAllBook}
+    const value={bookMount,setBookMount,getAllBook,page,setPage}
   return (
     <bookcontext.Provider value={value}>{children}</bookcontext.Provider>
   )

@@ -12,7 +12,7 @@ export function AppNavbar() {
 
 
 <>
-<div className="w-full bg-white">
+<div className="w-full bg-white  ">
     <Navbar className=" md:w-[90%] md:mx-auto flex justify-between items-center gap-6 md:px-20">
 
   {/* Left Section */}
@@ -21,6 +21,7 @@ export function AppNavbar() {
       <img src={logo} className="mr-3 h-6 sm:h-9" alt="Logo" />
     </NavbarBrand>
   </div>
+  
 
   {/* Right Section
   <div className="flex items-center gap-4 ml-auto   ">
@@ -30,7 +31,6 @@ export function AppNavbar() {
       <div className="flex items-center gap-3  ">
         <img className="w-10 h-10" src={profile} alt="" />
         <h3 className="text-xs md:text-xl capitalize">{userData?.name}</h3>
-        <Logout onClick={logOut} size="32" color="red"/>
       </div>
     ) : (
       <AppButton Text={'Sign in'} />

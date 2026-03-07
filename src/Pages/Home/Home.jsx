@@ -50,7 +50,7 @@ autoplaySpeed: 2000, // الزمن بين كل سلايد والتانية
   {
     breakpoint: 640, // large mobile
     settings: {
-      slidesToShow: 2,
+      slidesToShow: 1,
       slidesToScroll: 1,
     }
   },
@@ -65,6 +65,7 @@ autoplaySpeed: 2000, // الزمن بين كل سلايد والتانية
 
   }
 const {bookMount,getAllBook}= useContext(bookcontext)
+
 useEffect(() => {
     getAllBook(); // استدعاء جلب البيانات عند المونت
   AOS.init({
@@ -83,7 +84,7 @@ useEffect(() => {
     <div className="slider-container">
       <Slider {...settings}>
         
-        {bookMount?bookMount.map((item,i)=><Card book={item} key={i}   /> 
+        {bookMount?bookMount?.map((item,i)=><Card book={item} key={i}   /> 
 ):<Skeleton  count={2} baseColor="gray" className="h-96 w-96"/>}
        
       </Slider>
