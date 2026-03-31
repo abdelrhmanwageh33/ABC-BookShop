@@ -3,7 +3,21 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AppFooter } from '../../Components/AppFooter/AppFooter';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
 export default function About() {
+   useGSAP(()=>{
+    gsap.to(".about", {
+  keyframes: {
+    x: [0, 200, 200, 0, 0],
+    y: [0, 0, 100, 100, 0],
+    rotate:[360],
+
+    ease: "power1.inOut"
+  },
+  duration: 2
+}); 
+     })
   useEffect(() => {
     AOS.init({
       duration: 2000,   // مدة الانيميشن
@@ -16,7 +30,7 @@ export default function About() {
     <section className="my-10 py-10 w-[90%] mx-auto">
       <div className="container flex items-center justify-center flex-col bg-cover bg-center h-[50vh] w-full" style={{ backgroundImage: `url(${header})` }}>
 
-    <h2 className='text-3xl text-white'>About</h2>
+    <h2 className='text-3xl text-white about'>About</h2>
       </div>
       <div className='py-10 my-10'  data-aos="fade-right">
 <h3 className='text-3xl font-bold'>Our Story</h3>

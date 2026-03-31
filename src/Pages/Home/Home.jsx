@@ -15,55 +15,47 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 export default function Home() {
-  let settings = {
-    dots: false,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 5,
-    slidesToScroll: 4,
-    initialSlide: 0,
-    autoplay: true,
-autoplaySpeed: 2000, // الزمن بين كل سلايد والتانية
-
+var settings = {
+  dots: false,
+  infinite: true,
+  speed: 300,
+  slidesToShow: 6, // للشاشات الكبيرة
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 2000,
+  initialSlide: 0,
   responsive: [
-  {
-    breakpoint: 1280, // large screens
-    settings: {
-      slidesToShow: 5,
-      slidesToScroll: 2,
+    {
+      breakpoint: 480, // الشاشات الصغيرة جدا (موبايل)
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 600, // الشاشات الصغيرة (موبايل أكبر)
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 1024, // تابلت
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 1280, // لابتوب
+      settings: {
+        slidesToShow: 5,
+        slidesToScroll: 1
+      }
     }
-  },
-  {
-    breakpoint: 1024, // laptop
-    settings: {
-      slidesToShow: 4,
-      slidesToScroll: 2,
-    }
-  },
-  {
-    breakpoint: 768, // tablet
-    settings: {
-      slidesToShow: 3,
-      slidesToScroll: 1,
-    }
-  },
-  {
-    breakpoint: 640, // large mobile
-    settings: {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    }
-  },
-  {
-    breakpoint: 480, // small mobile
-    settings: {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-    }
-  }
-]
+  ]
+};
 
-  }
 const {bookMount,getAllBook}= useContext(bookcontext)
 
 useEffect(() => {
@@ -78,20 +70,18 @@ useEffect(() => {
   return (
    <>
    <AppCarousal></AppCarousal>
-   <div className=" my-10 py-10 bg-[#FEF4F4]" data-aos="fade-right">
-    <div className="w-[80%] mx-auto">
-      <h3 className="text-center text-xl my-5">Best Selling Books Ever</h3>
-    <div className="slider-container">
-      <Slider {...settings}>
-        
-        {bookMount?bookMount?.map((item,i)=><Card book={item} key={i}   /> 
-):<Skeleton  count={2} baseColor="gray" className="h-96 w-96"/>}
-       
-      </Slider>
+   <div className="my-10 py-10 bg-[#FEF4F4]" data-aos="fade-right">
+  <div className="w-[80%] mx-auto">
+    <h3 className="text-center text-xl my-5">Best Selling Books Ever</h3>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {bookMount?.slice(0, 4).map((item, i) => (
+        <div key={i} className="px-2">
+          <Card book={item} />
+        </div>
+      ))}
     </div>
-    </div>
-
-   </div>
+  </div>
+</div>
    
 
    <FeatureSection></FeatureSection>

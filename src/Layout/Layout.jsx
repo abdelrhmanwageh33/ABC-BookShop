@@ -40,7 +40,7 @@ function scrollTop(){
           <Outlet />
         </div>
       </div>
-<div className="fixed bottom-5 right-5 z-50">
+<div className="fixed md:bottom-5 md:right-5 right-0 bottom-0 z-50">
         <SidebarTop onClick={scrollTop} size="32" color="black" />
       </div>
       <Toaster />

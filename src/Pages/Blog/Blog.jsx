@@ -4,12 +4,23 @@ import post2 from '../../assets/post_2.jpg.webp';
 import post3 from '../../assets/post_3.jpg.webp';
 import post4 from '../../assets/post_4.jpg.webp';
 import { AppFooter } from '../../Components/AppFooter/AppFooter';
-
+import { gsap } from "gsap";
 
 
 import BlogLeft from './BlogLeft';
+import { useGSAP } from '@gsap/react';
 
 export default function Blog() {
+     useGSAP(()=>{
+    gsap.to(".blog", {
+  keyframes: {
+    x: [0, 200, 200, 0, 0],
+    y: [0, 0, 100, 100, 0],
+    ease: "power1.inOut"
+  },
+  duration: 2
+}); 
+     })
   return (
        <section className="w-[90%] mx-auto mb-10  bg-white">
       {/* Header */}
@@ -17,7 +28,7 @@ export default function Blog() {
         className="container flex items-center justify-center flex-col bg-cover bg-center h-[50vh] w-full"
         style={{ backgroundImage: `url(${header})` }}
       >
-        <h2 className="text-3xl text-white capitalize">blog</h2>
+        <h2 className="text-3xl text-white capitalize blog">blog</h2>
       </div>
 
       <div className='flex flex-col md:flex-row  my-10' >

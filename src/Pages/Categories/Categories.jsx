@@ -5,6 +5,10 @@ import Card from '../../Components/Card/Card';
 import { AppFooter } from '../../Components/AppFooter/AppFooter';
 import { AppPagination } from '../../Components/AppPagination/AppPagination';
 import Skeleton from 'react-loading-skeleton';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/all';
+import gsap from 'gsap';
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Categories() {
   const { bookMount, getAllBook ,page,setPage } = useContext(bookcontext);
@@ -36,7 +40,16 @@ function changeCategory(){
   useEffect(() => {
  changeCategory()
   }, [bookMount, category]);
-
+useGSAP(()=>{
+gsap.from('.Sidebar',{
+  scale:2,
+  opacity:0,
+  duration:2,
+  scrollTrigger:{
+    trigger:'.Sidebar'
+  }
+})
+})
   return (
     <section className="w-[90%] mx-auto my-10 py-10">
       {/* Header */}
@@ -50,8 +63,8 @@ function changeCategory(){
       {/* Content */}
       <div className="flex flex-col md:flex-row items-start justify-between gap-6 mt-8">
         {/* Sidebar: Categories */}
-       <div className='w-full md:w-[20%]  my-5'>
- <div className=" shadow p-5">
+       <div className='w-full md:w-[20%]  my-5 '>
+ <div className=" shadow p-5 Sidebar">
           <h3>Filter by Genres</h3>
           <ul className="my-5">
             <li
@@ -99,7 +112,7 @@ function changeCategory(){
         {/* Books Grid */}
         <div className="" data-aos="fade-up-right">
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {filter.length==0? <Skeleton  count={4} baseColor="gray" className="h-96 w-96"/>
+            {filter?.length==0? <Skeleton  count={4} baseColor="gray" className="h-96 w-96"/>
             :filter?.map((item, i) => (
               <Card book={item} key={i} />
             ))}
